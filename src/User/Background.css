@@ -1,0 +1,381 @@
+.home-content-background {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    background-color: var(--background-color);
+}
+
+.home-content {
+    /*margin-top: 80px;*/
+    width: 70dvw;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color);
+}
+
+@media (max-width: 768px) {
+    .home-content {
+        width: 100dvw;
+    }
+}
+
+.home-content-category {
+    border-radius: 20px;
+    background-color: var(--panel-color);
+    box-shadow: 0 4px 4px -4px black;
+    margin-bottom: 20px;
+    padding: 5px 0;
+}
+
+@media (max-width: 940px) {
+    .home-content-category {
+        border-radius: 0;
+    }
+}
+
+.user-profile-background {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: var(--background-color);
+    /*border: 1px solid red;*/
+}
+
+.user-profile-container {
+    width: 70dvw;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color);
+    /*border: 1px solid blue;*/
+}
+
+@media (max-width: 768px) {
+    .user-profile-container {
+        width: 100dvw;
+    }
+}
+
+.user-profile-reviews-background {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: var(--panel-color);
+    /*border: 1px solid red;*/
+}
+
+.user-profile-reviews-container {
+    width: 70dvw;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color);
+    /*border: 1px solid blue;*/
+}
+
+@media (max-width: 768px) {
+    .user-profile-reviews-container {
+        width: 100dvw;
+    }
+}
+
+.profile-settings-title-background {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    background-color: var(--background-color);
+}
+
+.profile-settings-title {
+    padding: 20px;
+    font-weight: bold;
+    font-size: 1.5rem;
+    /*margin-top: 80px;*/
+    background-color: var(--background-color);
+    /* display: flex; */
+    width: 70dvw;
+    /* transition: width 0.1s ease; */
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color);
+}
+
+@media (max-width: 940px) {
+    .profile-settings-title {
+        width: 100dvw;
+    }
+}
+
+.profile-settings-content-background {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    background-color: var(--panel-color);
+}
+
+.profile-settings-content-container {
+    background-color: var(--panel-color);
+    width: 70dvw;
+    color: var(--text-color);
+}
+
+@media (max-width: 768px) {
+    .profile-settings-content-container {
+        width: 100dvw;
+    }
+}
+
+.order-history-title-background {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    background-color: var(--background-color);
+}
+
+.order-history-title {
+    padding: 20px;
+    font-weight: bold;
+    font-size: 1.5rem;
+    /*margin-top: 80px;*/
+    background-color: var(--background-color);
+    /* display: flex; */
+    width: 70dvw;
+    /* transition: width 0.1s ease; */
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color);
+}
+
+@media (max-width: 940px) {
+    .order-history-title {
+        width: 100dvw;
+    }
+}
+
+.order-history-content-background {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    background-color: var(--panel-color);
+}
+
+.order-history-content-container {
+    background-color: var(--panel-color);
+    width: 70dvw;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .order-history-content-container {
+        width: 100dvw;
+    }
+}
+
+.book-content-background {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    background-color: var(--background-color);
+}
+
+.book-content {
+    /*margin-top: 80px;*/
+    background-color: var(--background-color);
+    /* display: flex; */
+    width: 70dvw;
+    /* transition: width 0.1s ease; */
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color);
+}
+
+@media (max-width: 940px) {
+    .book-content {
+        width: 100dvw;
+    }
+}
+
+.book-main-content-background {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    background-color: var(--panel-color);
+}
+
+.book-main-content {
+    background-color: var(--panel-color);
+    /* display: flex; */
+    width: 70dvw;
+    /* transition: width 0.1s ease; */
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color);
+}
+
+@media (max-width: 940px) {
+    .book-main-content {
+        width: 100dvw;
+    }
+}
+
+.booklist-content-background {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    background-color: var(--background-color);
+    /*border: 1px solid red;*/
+    /*box-shadow: 0 4px 4px -4px gray;*/
+}
+
+.booklist-content {
+    /*margin-top: 80px;*/
+    background-color: var(--background-color);
+    padding: 20px;
+    width: 70dvw;
+    /* transition: width 0.1s ease; */
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    color: var(--text-color);
+    font-size: 1.3rem;
+    font-weight: bold;
+    /*border: 1px solid blue;*/
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (max-width: 940px) {
+    .booklist-content {
+        width: 100dvw;
+    }
+}
+
+.booklist-main-content-background {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /*width: 100%;*/
+    display: grid;
+    justify-content: center;
+    /* align-items: center; */
+    background-color: var(--panel-color);
+    /*border: 1px solid green;*/
+}
+
+.booklist-main-content {
+    background-color: var(--panel-color);
+    /* display: flex; */
+    width: 70dvw;
+    /* transition: width 0.1s ease; */
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    color: var(--text-color);
+    /*border: 1px solid yellow;*/
+    /*display: grid;*/
+}
+
+@media (max-width: 940px) {
+    .booklist-main-content {
+        width: 100dvw;
+    }
+}
+
+.genrelist-main-content-background {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /*width: 100%;*/
+    display: grid;
+    justify-content: center;
+    /* align-items: center; */
+    background-color: var(--panel-color);
+    /*border: 1px solid green;*/
+}
+
+.genrelist-main-content {
+    background-color: var(--panel-color);
+    /* display: flex; */
+    width: 70dvw;
+    /* transition: width 0.1s ease; */
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    color: var(--text-color);
+    /*border: 1px solid yellow;*/
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 768px) {
+    .genrelist-main-content {
+        width: 100dvw;
+    }
+}
+
+@media (max-width: 426px) {
+    .genrelist-main-content {
+        /*flex-direction: row;*/
+        /*flex-wrap: wrap-reverse;*/
+    }
+}
+
+.checkout-background {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 100%;
+    /*display: flex;*/
+    justify-content: center;
+    /* align-items: center; */
+    background-color: var(--background-color);
+    display: grid;
+}
+
+.checkout-container {
+    /*margin-top: 80px;*/
+    width: 80dvw;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color);
+    /*display: grid;*/
+}
+
+@media (max-width: 768px) {
+    .checkout-container {
+        width: 100dvw;
+    }
+}
+
+.checkout-message-container {
+    /*margin-top: 80px;*/
+    width: 70dvw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color);
+    /*display: grid;*/
+}
+
+@media (max-width: 768px) {
+    .checkout-message-container {
+        width: 100dvw;
+    }
+}
+
+.reader-content-background {
+    display: flex;
+    justify-content: center;
+    background-color: var(--background-color);
+}

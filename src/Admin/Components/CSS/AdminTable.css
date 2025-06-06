@@ -1,0 +1,156 @@
+.admin-list-title {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--panel-color);
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 15px 15px 0 rgba(0, 0, 0, 0.05), 0 5px 15px 0 rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.admin-list-add-btn {
+    display: flex;
+    align-items: center;
+    border: 2px solid grey;
+    border-radius: 10px;
+    padding: 4px 5px;
+    cursor: pointer;
+    background: gray;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.admin-list-add-btn:hover {
+    background-color: darkgray;
+    border: 2px solid darkgray;
+    /*color: var(--background-color);*/
+}
+
+.table-container {
+    display: grid;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.table-image {
+    width: 100%;
+    padding: 5px 0;
+    border-radius: 7px;
+}
+
+.table-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    flex-wrap: wrap-reverse;
+    color: var(--text-color);
+    /*gap: 10px;*/
+}
+
+.table-controls-rows {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.table-controls-rows select {
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    background-color: var(--primary-color);
+    border: 1px solid var(--shadow1-color);
+    color: var(--text-color);
+}
+
+.table-controls-search {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.table-controls-search input {
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    border: 1px solid var(--shadow1-color);
+    border-radius: 4px;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+.custom-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    gap: 15px;
+}
+
+.custom-pagination span {
+    color: var(--text-color);
+}
+
+.custom-pagination button {
+    padding: 5px 8px;
+    font-size: 14px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.custom-pagination button:disabled {
+    background-color: #888;
+    cursor: not-allowed;
+}
+
+.table-edit-btn {
+    border: none;
+    background: none;
+    color: var(--text-color);
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.table-edit-btn:hover {
+    background-color: var(--hover-color);
+}
+
+.table-delete-btn {
+    border: none;
+    background: none;
+    color: red;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.table-delete-btn:hover {
+    background-color: var(--hover-color);
+    color: orangered;
+}
+
+.table-view-btn {
+    border: none;
+    background: none;
+    color: royalblue;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.table-view-btn:hover {
+    background-color: var(--hover-color);
+}
+
+.admin-table-link {
+    color: var(--text-color);
+}
+
+.admin-table-link:hover {
+    color: gray;
+}

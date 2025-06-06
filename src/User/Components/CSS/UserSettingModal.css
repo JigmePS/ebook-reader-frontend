@@ -1,0 +1,101 @@
+.user-setting-modal-background {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+}
+
+.user-setting-modal {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--panel-color);
+    /*padding: 10px;*/
+    border-radius: 10px;
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    min-width: 50dvw;
+}
+
+.user-setting-modal-title-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    /*justify-content: space-between;*/
+    font-weight: bold;
+    font-size: 1.5rem;
+    /*border: 1px solid black;*/
+    padding: 0 30px;
+}
+
+.user-setting-modal-title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.user-setting-modal-close-btn-container {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    /*border: 1px solid black;*/
+}
+
+.user-setting-modal-close-btn {
+    margin: 0 20px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+.user-setting-modal-form {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+.user-setting-modal-form label {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.user-setting-modal input {
+    border-radius: 5px;
+    padding: 10px 7px;
+    outline: none;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    background-color: var(--primary-color);
+    border: 1px solid var(--shadow2-color);
+    color: var(--text-color);
+}
+
+.user-setting-modal-buttons {
+    margin: 10px 0;
+}
+
+.user-setting-modal-save-btn {
+    border-radius: 5px;
+    padding: 5px 10px;
+    /*margin-top: 5px;*/
+    cursor: pointer;
+    background-color: var(--primary-color);
+    box-shadow: 0 5px 5px 0 var(--shadow1-color);
+    color: var(--text-color);
+    border: 1px solid var(--shadow1-color);
+}
+
+.user-setting-modal-save-btn:hover {
+    transform: translateY(-2px);
+    background-color: var(--hover-color);
+}
+

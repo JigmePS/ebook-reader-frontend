@@ -1,0 +1,52 @@
+.aboutus-title {
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 20px;
+    color: var(--text-color);
+    margin-left: 20px;
+}
+
+.aboutus-content-container {
+    background-color: var(--panel-color);
+    border-radius: 15px;
+    padding: 30px;
+    margin: 0 20px 20px;
+}
+
+.aboutus-content-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.aboutus-content-description p{
+    margin-bottom: 10px;
+}
+
+.aboutus-content-developer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dev-img {
+    width: 10rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    object-fit: cover;
+    overflow: hidden;
+    cursor: pointer;
+    border: 5px solid var(--shadow1-color);
+}
+
+.aboutus-content-developer-name {
+    font-size: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.aboutus-content-developer-positon {
+    font-size: 0.95rem;
+    color: gray;
+}

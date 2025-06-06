@@ -1,0 +1,33 @@
+.font-picker {
+    position: relative;
+    display: flex;
+}
+
+.font-picker button {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    background: none;
+    border-radius: 5px;
+    padding: 5px;
+    gap: 3px;
+    color: var(--text-color);
+}
+
+.font-picker button:hover {
+    background-color: var(--hover-color);
+}
+
+.font-picker-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    border: 1px solid #ccc;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 10;
+    width: 200px;
+    border-radius: 5px;
+    background-color: var(--panel-color);
+    color: var(--text-color);
+}

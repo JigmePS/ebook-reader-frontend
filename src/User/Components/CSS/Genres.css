@@ -1,0 +1,117 @@
+.genre-scroll-container {
+    position: sticky;
+    top: 80px;
+    z-index: 10;
+    background-color: var(--panel-color);
+    border-bottom: 1px solid #ddd;
+}
+
+.genre-alphabet-scroll {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0.75rem;
+    /*border-bottom: 1px solid #ddd;*/
+    /*border: 1px solid red;*/
+    /*box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.1);*/
+    overflow-x: auto;
+    max-width: 70dvw;
+}
+
+@media (max-width: 768px) {
+    .genre-alphabet-scroll {
+        max-width: 100dvw;
+    }
+}
+
+.letter-link {
+    margin: 4px;
+    padding: 5px;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+@media (max-width: 768px) {
+    .letter-link {
+        font-size: 1.2rem;
+        margin: 0 8px;
+    }
+}
+
+.letter-link:hover {
+    background-color: #eee;
+    border-radius: 100px;
+    color: #007bff;
+}
+
+.genre-list-container {
+    flex: 1;
+    padding: 1.2rem;
+}
+
+.genre-letter-section{
+    scroll-margin-top: calc( 80px + 80px);
+}
+
+.genre-letter {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #ccc;
+    padding: 0.5rem;
+    padding-left: 1.5rem;
+    /*scroll-margin-top: 200px;*/
+}
+
+.genre-columns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+    row-gap: 7px;
+    padding: 10px;
+}
+
+@media (max-width: 426px) {
+    .genre-columns {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+.genre-column {
+    border-bottom: 1px solid var(--background-color);
+    /*flex: 1;*/
+    /*background-color: var(--background-color);*/
+    /*border: 1px solid red;*/
+    /*min-width: 200px;*/
+}
+
+.genre-item {
+    /*background-color: var(--background-color);*/
+    /*display: block;*/
+    padding: 1rem;
+    border-bottom: 1px solid var(--shadow2-color);
+    text-decoration: none;
+    color: var(--text-color);
+    transition: background 0.2s;
+    border-radius: 6px;
+}
+
+.genre-item:nth-child(4n),
+.genre-item:nth-child(4n-1) {
+    background-color: var(--background-color);
+}
+
+@media (max-width: 426px) {
+    .genre-item {
+        background-color: var(--background-color);
+    }
+
+    .genre-item:nth-child(odd) {
+        background-color: var(--panel-color);
+    }
+}
+
+.genre-item:hover {
+    background-color: var(--hover-color);
+}

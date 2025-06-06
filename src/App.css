@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+  padding: 0;
+  /*font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;*/
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+:root {
+  --primary-color: #FFF;
+  --background-color: #F9F9F9;
+  --panel-color: #FFFFFF;
+  --text-color: #000;
+
+  --hover-color: #E7E7E7;
+
+  --button-color: #5243AA;
+
+  --button1-color: #3B82F6;
+  --button1-hover-color: #2563EB;
+
+  --button2-color: #6366F1;
+
+  --button3-color: #8B5CF6;
+  --button3-hover-color: #7C3AED;
+
+  --nav-shadow-color: gray;
+
+  --shadow1-color: rgba(0, 0, 0, 0.3);
+  --shadow2-color: rgba(0, 0, 0, 0.4);
+
+  --black-light-color: #707070;
+  --border-color: #e6e5e5;
+  --toggle-color: #DDD;
+  --title-icon-color: #fff;
+  --page-number-color: #fff;
+}
+
+[data-theme="dark"] {
+  --primary-color: #3A3B3C;
+  --background-color: #212121;
+  --panel-color: #171717;
+  --text-color: #CCC;
+
+  --hover-color: #4B5563;
+
+  --button1-color: #60A5FA;
+  --button1-hover-color: #3B82F6;
+
+  --button2-color: #818CF8;
+
+  --button3-color: #A78BFA;
+  --button3-hover-color: #8B5CF6;
+
+  --nav-shadow-color: rgba(255, 255, 255, 0.08);
+
+  --shadow1-color: rgba(255, 255, 255, 0.06);
+  --shadow2-color: rgba(255, 255, 255, 0.1);
+
+  --black-light-color: #CCC;
+  --border-color: #4D4C4C;
+  --toggle-color: #FFF;
+  --box1-color: #3A3B3C;
+  --box2-color: #3A3B3C;
+  --box3-color: #3A3B3C;
+  --title-icon-color: #CCC;
+  --page-number-color: #000;
+}
+
+body {
+  background-color: var(--background-color);
+}
+
+.form-error {
+  color: red;
+}

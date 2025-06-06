@@ -1,0 +1,219 @@
+.reader-sidebar {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 300px;
+    background-color: var(--panel-color);
+    box-shadow: 0 0 10px var(--shadow1-color);
+    transition: transform 0.3s ease;
+    z-index: 5000;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+/* Left sidebar */
+.reader-sidebar.left {
+    left: 0;
+    transform: translateX(-100%);
+}
+
+.reader-sidebar.left.open {
+    transform: translateX(0);
+}
+
+.left-reader-sidebar-title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-color);
+}
+
+.left-reader-sidebar-title {
+    margin: 10px;
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+.reader-sidebar-close-btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+.reader-sidebar-entries-select {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--background-color);
+    border-radius: 10px;
+    padding: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 2px var(--shadow1-color);
+}
+
+.reader-sidebar-entries-select-content {
+    padding-left: 5px;
+    border-left: 1px solid var(--shadow2-color);
+}
+
+.reader-sidebar-entries-select select {
+    padding: 5px;
+    border-radius: 5px;
+    background-color: var(--panel-color);
+    color: var(--text-color);
+}
+
+.reader-sidebar-pagination {
+    /*border: 1px steelblue solid;*/
+    display: flex;
+    align-items: center;
+    flex: 1;
+    padding: 3px 8px;
+    overflow-x: auto;
+}
+
+.reader-sidebar-page-btn {
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    border: none;
+    background: none;
+    margin-right: 3px;
+    color: var(--text-color);
+}
+
+.reader-sidebar-page-btn:hover {
+    background-color: var(--hover-color);
+    color: var(--button2-color);
+    font-weight: bold;
+}
+
+.reader-sidebar-page-btn.active {
+    background-color: var(--hover-color);
+    color: var(--button1-hover-color);
+    font-weight: bold;
+}
+
+.reader-sidebar-chapter-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    /*border: 1px steelblue solid;*/
+    max-height: calc(100dvh - 150px);
+    overflow-y: auto;
+}
+
+.reader-sidebar-chapter-list button {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: transparent;
+    transition: transform 0.1s ease;
+    border: none;
+    border-bottom: 1px solid var(--shadow2-color);
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.reader-sidebar-chapter-list li:nth-child(odd) button{
+    background-color: var(--panel-color);
+}
+
+.reader-sidebar-chapter-list li:nth-child(even) button{
+    background-color: var(--background-color);
+}
+
+.reader-sidebar-chapter-list li.current button {
+    background-color: var(--hover-color);
+    color: var(--button3-hover-color); /* highlight current chapter */
+    font-weight: bold;
+    pointer-events: none;
+}
+
+/* Right sidebar */
+.reader-sidebar.right {
+    right: 0;
+    transform: translateX(100%);
+}
+
+.reader-sidebar.right.open {
+    transform: translateX(0);
+}
+
+.right-reader-sidebar-title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-color);
+}
+
+.right-reader-sidebar-title {
+    margin: 10px;
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+.setting-group {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0.6rem;
+}
+
+.setting-group label {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.button-controls {
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    overflow: hidden;
+    width: max-content;
+}
+
+.button-controls input {
+    width: 60px;
+    padding: 8px 0;
+    text-align: center;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border-right: 1px solid var(--shadow2-color);
+    border-left: 1px solid var(--shadow2-color);
+}
+
+.button-controls button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    /*padding: 0.4rem 0.8rem;*/
+    font-size: 1.5rem;
+    /*font-weight: bold;*/
+    cursor: pointer;
+    border: none;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    padding: 7px;
+}
+
+.button-controls button:hover {
+    background-color: var(--hover-color);
+}
+
+.decrease-btn {
+    border-right: 1px solid var(--shadow2-color);
+}
+
+.increase-btn {
+    border-left: 1px solid var(--shadow2-color);
+}

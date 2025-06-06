@@ -1,0 +1,115 @@
+.admin-layout {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    height: 100dvh;
+}
+
+.admin-main {
+    /*width: 100%;*/
+    /*max-width: 100%;*/
+    /*background-color: var(--panel-color);*/
+    flex: 1;
+}
+
+.admin-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: var(--panel-color);
+    padding: 26px 23px 26px 45px;
+    box-shadow: 0 15px 15px 0 rgba(0, 0, 0, 0.1);
+    transition: 0.5s ease;
+}
+
+/*@media (max-width: 1400px) {*/
+/*    .admin-header-container {*/
+/*        padding: 23px 23px 23px 45px;*/
+/*    }*/
+/*}*/
+
+@media (max-width: 1200px) {
+    .admin-header-container {
+        padding: 23px 23px 23px 45px;
+    }
+}
+
+.admin-page-title {
+    color: var(--text-color);
+    font-size: 1.75rem;
+    font-weight: bold;
+}
+
+.admin-header-search-container {
+    display: flex;
+    /*width: 20%;*/
+    justify-content: flex-end;
+    align-items: center;
+    background-color: white;
+}
+
+.admin-content-container {
+    display: grid;
+    row-gap: 20px;
+    padding: 20px;
+    max-height: calc(100% - 89.6px);
+    /*border: 1px solid red;*/
+    max-width: calc(100dvw - 250px);
+    overflow: auto;
+    /*position: relative;*/
+}
+
+@media (max-width: 1200px) {
+    .admin-content-container {
+        max-width: calc(100dvw - 70px);
+        max-height: calc(100% - 83.6px);
+    }
+}
+
+@media (max-width: 420px) {
+    .admin-content-container {
+        max-width: calc(100dvw);
+    }
+}
+
+.admin-content-container-change {
+    max-width: calc(100dvw);
+}
+
+@media (max-width: 1200px) {
+    .admin-content-container-change {
+        max-width: calc(100dvw);
+    }
+}
+
+@media (max-width: 420px) {
+    .admin-content-container-change {
+        max-width: calc(100dvw - 70px);
+    }
+}
+
+.admin-content-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 20px;
+    row-gap: 20px;
+}
+
+@media (max-width: 1200px) {
+    .admin-content-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/*.admin-table-grid {*/
+/*    display: grid;*/
+/*    grid-template-columns: repeat(1,1fr);*/
+/*    column-gap: 20px;*/
+/*    row-gap: 20px;*/
+/*}*/
+
+/*@media (max-width: 1200px) {*/
+/*    .admin-table-grid {*/
+/*        grid-template-columns: repeat(2,1fr);*/
+/*    }*/
+/*}*/

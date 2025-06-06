@@ -1,0 +1,117 @@
+.main-footer {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+    padding: 20px;
+}
+
+.main-footer-container {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .main-footer-container {
+        width: 90%;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.main-footer-left {
+    width: 100%;
+}
+
+.main-footer-right {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+}
+
+@media (max-width: 426px) {
+    .main-footer-right {
+        grid-template-columns: 1fr;
+    }
+}
+
+.main-footer-content {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.main-footer-content-title {
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.footer-logo-container {
+    display: flex;
+    align-items: center;
+    margin-right: 5px;
+}
+
+.footer-logo {
+    aspect-ratio: 1;
+    height: 50px;
+    width: 50px;
+}
+
+.main-footer-content-links {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color: var(--text-color);
+    text-decoration: none;
+    row-gap: 10px;
+    margin-bottom: 5px;
+}
+
+.main-footer-content-link {
+    color: var(--text-color);
+    border: none;
+    background: none;
+    display: flex;
+    font-size: 1rem;
+    row-gap: 10px;
+    cursor: pointer;
+    width: max-content;
+}
+
+.main-footer-content-link:hover {
+    color: gray;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.contact-info-details {
+    font-size: 0.85rem;
+    color: gray;
+}
+
+.main-footer-copyright {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0 5px 0;
+    background-color: var(--background-color);
+    width: 100%;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9rem;
+    color: var(--text-color);
+    margin-top: 20px;
+}

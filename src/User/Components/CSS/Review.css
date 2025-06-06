@@ -1,0 +1,205 @@
+.book-review-form-container {
+    /*width: 100%;*/
+    /*border: 1px solid red;*/
+    border-radius: 20px;
+    background-color: var(--background-color);
+    padding: 10px;
+}
+
+.book-review-form-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-color);
+    letter-spacing: 0.03rem;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.book-review-form {
+    width: 100%;
+    /*border: 1px solid red;*/
+    background-color: var(--background-color);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.book-review-form textarea {
+
+}
+
+.rating-stars {
+    padding: 10px;
+}
+
+.book-review-description {
+    padding: 15px;
+    border-radius: 10px;
+    max-width: 100%;
+    min-width: 100%;
+    background-color: var(--primary-color);
+    border: 1px solid var(--shadow2-color);
+    color: var(--text-color);
+    outline: none;
+    box-shadow: 0 5px 15px 0 var(--shadow1-color);
+}
+
+.submit-review-btn {
+    padding: 10px;
+    border-radius: 10px;
+    color: var(--text-color);
+    max-width: 250px;
+    /*border: none;*/
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: bold;
+    background-color: var(--primary-color);
+    box-shadow: 0 5px 5px 0 var(--shadow1-color);
+    border: 1px solid var(--shadow1-color);
+}
+
+.submit-review-btn:hover {
+    background-color: var(--hover-color);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px 0 var(--shadow2-color);
+}
+
+.review-edit-save-btn {
+    background-color: var(--primary-color);
+    box-shadow: 0 5px 5px 0 var(--shadow1-color);
+    border: 1px solid var(--shadow1-color);
+    color: var(--text-color);
+    padding: 7px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.review-edit-save-btn:hover {
+    background-color: var(--hover-color);
+}
+
+.review-edit-cancel-btn {
+    background-color: #c1c1c1;
+    box-shadow: 0 5px 5px 0 var(--shadow1-color);
+    border: 1px solid var(--shadow1-color);
+    color: white;
+    padding: 7px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.review-edit-cancel-btn:hover {
+    background-color: #999999;
+}
+
+    /*User's Book Review*/
+
+.book-user-review-container {
+    /*width: 100%;*/
+    /*border: 1px solid red;*/
+    border-radius: 20px;
+    background-color: var(--background-color);
+    padding: 20px;
+}
+
+.book-user-review-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 10px 15px 5px;
+}
+
+.book-user-review-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--text-color);
+    letter-spacing: 0.03rem;
+}
+
+.book-user-review-action-btn {
+    border: none;
+    background: none;
+    padding: 5px;
+}
+
+.user-review-edit-btn {
+    color: var(--text-color);
+}
+
+.user-review-edit-btn:hover {
+    border-radius: 10px;
+    background-color: lightgray;
+}
+
+.user-review-delete-btn {
+    color: red;
+}
+
+.user-review-delete-btn:hover {
+    border-radius: 10px;
+    background-color: lightgray;
+    color: orangered;
+}
+
+.book-user {
+    display: flex;
+    /*align-items: center;*/
+}
+
+.book-user-image {
+    height: 2.4rem;
+    width: 2.4rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.book-user-fallback {
+    height: 2.4rem;
+    width: 2.4rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: royalblue;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: 1px solid lightgray;
+}
+
+.book-user-review-content {
+    padding: 5px 10px;
+}
+
+.book-user-name {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
+
+.book-user-review-description {
+    font-size: 1rem;
+    padding: 5px;
+    color: var(--text-color);
+}
+
+.book-review-list-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /*border: 1px solid red;*/
+    padding: 20px;
+}
+
+.book-review-item {
+    padding: 15px 0;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(0,0,0, 0.2);
+}

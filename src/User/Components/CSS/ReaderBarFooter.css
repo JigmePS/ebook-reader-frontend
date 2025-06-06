@@ -1,0 +1,322 @@
+/*Reader Header*/
+
+.reader-bar {
+    position: relative;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 4px -4px var(--nav-shadow-color);
+    border-bottom: 2px solid var(--primary-color);
+    background-color: var(--panel-color);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.reader-bar.sticky {
+    position: sticky;
+    top: 0;
+}
+
+.reader-bar.fixed {
+    position: fixed;
+    top: 0;
+}
+
+.reader-bar-content {
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+}
+
+@media (max-width: 940px) {
+    .reader-bar-content {
+        width: 90%;
+    }
+}
+
+.reader-bar-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.reader-logo {
+    width: 50px;
+    height: 50px;
+}
+
+.reader-logo img {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    aspect-ratio: 1/1;
+}
+
+.reader-bar-title-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    overflow: hidden;
+}
+
+.reader-bar-title {
+    flex: 1;
+    overflow: hidden;
+    max-width: 70dvw;
+}
+
+@media (max-width: 426px) {
+    .reader-bar-title {
+        max-width: 60dvw;
+    }
+}
+
+.reader-bar-title-text {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.reader-bar-book-title-link {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.reader-bar-book-title-link:hover {
+    text-decoration: underline;
+}
+
+.reader-bar-title-divider {
+    font-size: 1.3rem;
+    color: var(--text-color);
+}
+
+.reader-bar-chapter-title {
+    font-size: 1.2rem;
+    /*font-weight: bold;*/
+    color: var(--text-color);
+}
+
+.reader-bar-library {
+    color: var(--text-color);
+}
+
+/*Reader Footer*/
+
+.reader-footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 -4px 4px -4px var(--nav-shadow-color);
+    background-color: var(--panel-color);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    border-top: 2px solid var(--primary-color);
+}
+
+.reader-footer.sticky {
+    position: sticky;
+    bottom: 0;
+}
+
+.reader-footer.fixed {
+    position: fixed;
+    bottom: 0;
+}
+
+.reader-footer-content {
+    width: 50dvw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /*padding: 5px 0;*/
+    /*border: 1px solid red;*/
+}
+
+@media (max-width: 1200px) {
+    .reader-footer-content {
+        width: 60dvw;
+    }
+}
+
+@media (max-width: 768px) {
+    .reader-footer-content {
+        width: 100dvw;
+    }
+}
+
+.reader-footer-content-left {
+    display: flex;
+}
+
+.reader-footer-previous {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 5px 0;
+    padding: 10px 25px 10px 10px;
+    border-right: 1px solid var(--shadow2-color);
+    border-left: 1px solid var(--shadow2-color);
+}
+
+/*.reader-footer-previous svg{*/
+/*    border: 1px solid silver;*/
+/*}*/
+
+.reader-footer-previous:hover {
+    margin: 0;
+    padding: 15px 25px 15px 10px;
+    background-color: var(--hover-color);
+    border-radius: 5px;
+}
+
+@media (max-width: 376px) {
+
+    .reader-footer-previous span {
+        display: none;
+    }
+
+    .reader-footer-previous {
+        display: flex;
+        margin: 3px;
+        padding: 15px 15px 15px 13px;
+    }
+
+    .reader-footer-previous:hover {
+        margin: 3px;
+        padding: 15px 15px 15px 13px;
+        border-radius: 5px;
+    }
+}
+
+.reader-footer-content-right {
+    display: flex;
+}
+
+.reader-footer-next {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 5px 0;
+    padding: 10px 10px 10px 25px;
+    border-left: 1px solid var(--shadow2-color);
+    border-right: 1px solid var(--shadow2-color);
+}
+
+.reader-footer-next:hover {
+    margin: 0;
+    padding: 15px 10px 15px 25px;
+    background-color: var(--hover-color);
+    border-radius: 5px;
+}
+
+@media (max-width: 376px) {
+    .reader-footer-next span {
+        display: none;
+    }
+
+    .reader-footer-next {
+        display: flex;
+        margin: 3px;
+        padding: 15px 13px 15px 15px;
+    }
+
+    .reader-footer-next:hover {
+        margin: 3px;
+        padding: 15px 13px 15px 15px;
+        border-radius: 5px;
+    }
+}
+
+.reader-footer-content-center {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    /*border: 1px solid blue;*/
+    /*height: 100%;*/
+}
+
+.reader-footer-action-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+@media (max-width: 376px) {
+    .reader-footer-action-container {
+        gap: 0;
+    }
+}
+
+.reader-footer-action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: none;
+    border-left: 1px solid var(--shadow2-color);
+    border-right: 1px solid var(--shadow2-color);
+    padding: 10px;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+.footer-chapters:hover ,.footer-dark-mode:hover, .footer-customize:hover {
+    margin: 0;
+    background-color: var(--hover-color);
+    border-radius: 5px;
+}
+
+@media (max-width: 376px) {
+    .reader-footer-action {
+        display: flex;
+        align-items: center;
+        margin: 3px;
+        padding: 13px;
+    }
+
+    .footer-chapters:hover, .footer-dark-mode:hover, .footer-customize:hover {
+        margin: 3px;
+        padding: 13px;
+    }
+}
+
+.reader-footer-previous:disabled,
+.reader-footer-next:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.reader-footer-previous:disabled:hover,
+.reader-footer-next:disabled:hover {
+    background-color: var(--panel-color);
+}
+
+.reader-footer-previous,
+.reader-footer-next {
+    transition: opacity 0.2s ease-in-out;
+}
