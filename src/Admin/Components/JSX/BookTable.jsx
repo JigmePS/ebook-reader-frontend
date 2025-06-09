@@ -17,6 +17,7 @@ import axios from "axios";
 import ConfirmationModal from "../../../Shared/Components/JSX/ConfirmationModal.jsx";
 import AddEditBookModal from "./AddEditBookModal.jsx";
 import {Link} from "react-router-dom";
+import {toast} from "react-toastify";
 
 function BookTable({title, theme}) {
 
@@ -217,20 +218,29 @@ function BookTable({title, theme}) {
             cell: row => {
                 const avg = parseFloat(row.averageRating || 0);
                 return (
-                    <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <Rating
-                            readonly
-                            initialValue={avg}
-                            allowFraction
-                            size={18}
-                            fillColor="#ffd700"
-                            emptyColor="#e0e0e0"
-                            SVGstyle={{ display: 'inline-block' }}
-                        />
-                        <span style={{ marginLeft: 8, fontSize: '0.85rem' }}>
-                    {avg.toFixed(1)} / 5
-                </span>
-                    </div>
+                    <Link
+                        to={`/book-management/${row.bookid}/reviews`}
+                        state={{ booktitle: row.booktitle }}
+                        style={{ textDecoration: 'none', color: 'inherit' }}
+                    >
+                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                            <Rating
+                                readonly
+                                initialValue={avg}
+                                allowFraction
+                                size={18}
+                                fillColor="#ffd700"
+                                emptyColor="#e0e0e0"
+                                SVGstyle={{
+                                    display: 'inline-block',
+                                    textDecoration: "underline",
+                                }}
+                            />
+                            <span style={{ marginLeft: 8, fontSize: '0.85rem' }}>
+                        {avg.toFixed(1)} / 5
+                    </span>
+                        </div>
+                    </Link>
                 );
             },
             sortable: false,
@@ -377,9 +387,11 @@ function BookTable({title, theme}) {
                             })
                                 .then(() => {
                                     setBooks(prev => prev.filter(b => b.bookid !== selectedBook.bookid));
+                                    toast.success("Book deleted successfully.");
                                     setShowDeleteModal(false);
                                 })
                                 .catch(err => {
+                                    toast.error("Books purchased by users cannot be deleted.");
                                     console.error("Error deleting book", err);
                                     setShowDeleteModal(false);
                                 });

@@ -413,3 +413,37 @@
     background-color: var(--hover-color);
 }
 
+.profile-settings-user-delete-btn-container {
+    border: none;
+    display: flex;
+    align-items: center;
+    background-color: var(--background-color);
+    padding: 0;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.2);
+    margin: 10px;
+    width: max-content;
+    margin-bottom: 20px;
+}
+
+.profile-settings-user-delete-btn {
+    padding: 20px;
+    border: none;
+    display: flex;
+    align-items: center;
+    background-color: var(--background-color);
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100%;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    color: red;
+    opacity: 0.8;
+    gap: 5px;
+}
+
+.profile-settings-user-delete-btn:hover {
+    background-color: var(--hover-color);
+    color: #e64942;
+}

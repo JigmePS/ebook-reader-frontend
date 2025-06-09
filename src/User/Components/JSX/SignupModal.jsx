@@ -35,6 +35,7 @@ function SignupModal({onClose, onOpen}) {
     };
 
     const [signupError, setSignupError] = useState("");
+    const [loading, setLoading] = useState(false);
 
     const schema = yup.object().shape({
         username: yup.string()
@@ -64,6 +65,9 @@ function SignupModal({onClose, onOpen}) {
     });
 
     const onSubmit = async (data) => {
+        setSignupError("");  // Clear previous errors
+        setLoading(true);
+
         const { username, email, password } = data;
         const user = { username, email, password };
 
@@ -79,6 +83,8 @@ function SignupModal({onClose, onOpen}) {
         } catch (error) {
             console.error("Signup failed:", error.response?.data || error.message);
             setSignupError(error.response?.data || "Signup failed. Please try again.");
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -101,7 +107,7 @@ function SignupModal({onClose, onOpen}) {
                                         placeholder="Username"
                                         className="field"/>
                                 </div>
-                                <div className="form-error">{errors.username?.message}</div>
+                                <div className="form-error" aria-live="assertive">{errors.username?.message}</div>
                             </div>
 
                             <div className="field-container">
@@ -115,7 +121,7 @@ function SignupModal({onClose, onOpen}) {
                                         placeholder="Email Address"
                                         className="field"/>
                                 </div>
-                                <div className="form-error">{errors.email?.message}</div>
+                                <div className="form-error" aria-live="assertive">{errors.email?.message}</div>
                             </div>
 
                             <div className="field-container">
@@ -129,7 +135,7 @@ function SignupModal({onClose, onOpen}) {
                                         placeholder="Password"
                                         className="field"/>
                                 </div>
-                                <div className="form-error">{errors.password?.message}</div>
+                                <div className="form-error" aria-live="assertive">{errors.password?.message}</div>
                             </div>
 
                             <div className="field-container">
@@ -143,17 +149,23 @@ function SignupModal({onClose, onOpen}) {
                                         placeholder="Confirm Password"
                                         className="field"/>
                                 </div>
-                                <div className="form-error">{errors.confirmPassword?.message}</div>
+                                <div className="form-error" aria-live="assertive">{errors.confirmPassword?.message}</div>
                             </div>
 
-                            {signupError && <div className="form-error">{signupError}</div>}
+                            {signupError && <div className="form-error" aria-live="assertive">{signupError}</div>}
 
-                            <input type="submit" value="Sign Up" className="submit-button"/>
+                            <input
+                                type="submit"
+                                value={loading ? "Registering..." : "Sign Up"}
+                                className="submit-button"
+                                disabled={loading}
+                            />
+                            {loading && <span style={{marginLeft: "10px"}}>Loading...</span>}
                         </form>
                     </div>
                     <div className="form-switch">
                         Already have an account?
-                        <button onClick={handleSwitchToLogin}>
+                        <button onClick={handleSwitchToLogin} disabled={loading}>
                             Login now
                         </button>
                     </div>

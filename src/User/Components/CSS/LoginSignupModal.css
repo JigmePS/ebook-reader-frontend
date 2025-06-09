@@ -196,7 +196,7 @@ input:focus {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
-    border: 1px solid black;
+    border: 1px solid var(--shadow2-color);
     border-radius: 5px;
     overflow: hidden;
 }
@@ -212,11 +212,11 @@ input:focus {
 .forgot-password-form button {
     border: none;
     padding: 10px;
-    border-left: 1px solid var(--shadow2-color);
+    border-left: 1px solid var(--black-light-color);
     cursor: pointer;
     font-weight: bold;
     color: var(--text-color);
-    background-color: var(--panel-color);
+    background-color: var(--primary-color);
 }
 
 .forgot-password-form button:hover {
@@ -233,13 +233,12 @@ input:focus {
 .otp-form button {
     margin-top: 20px;
     padding: 8px 10px;
-    border: 1px solid black;
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
-    background-color: var(--panel-color);
+    background-color: var(--primary-color);
     color: var(--text-color);
-    /*border: 1px solid var(--shadow1-color);*/
+    border: 1px solid var(--shadow2-color);
 }
 
 .otp-form button:hover {
@@ -256,18 +255,20 @@ input:focus {
 .new-password-form input {
     width: 100%;
     padding: 10px;
-    border: 1px solid black;
+    border: 1px solid var(--shadow2-color);
+    color: var(--text-color);
     border-radius: 10px;
+    background-color: var(--primary-color);
 }
 
 .new-password-form button {
     margin-top: 15px;
     padding: 8px 10px;
-    border: 1px solid black;
+    border: 1px solid var(--shadow2-color);
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
-    background-color: var(--panel-color);
+    background-color: var(--primary-color);
     color: var(--text-color);
 }
 

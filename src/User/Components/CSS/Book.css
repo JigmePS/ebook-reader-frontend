@@ -328,6 +328,7 @@
     transition: transform 0.1s ease;
     border: none;
     border-bottom: 1px solid rgba(0,0,0, 0.1);
+    cursor: pointer;
 }
 
 .book-chapter-link:nth-child(4n),
@@ -348,7 +349,7 @@
 .book-chapter-link:hover {
     transform: translateY(-1px);
     box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.1);
-    background-color: rgba(0, 0, 0, 0.04);
+    background-color: var(--hover-color);
     border-radius: 5px;
 }
 

@@ -19,6 +19,7 @@ import GenreBooks from "./User/Pages/GenreBooks.jsx";
 import AuthorBooks from "./User/Pages/AuthorBooks.jsx";
 import Checkout from "./User/Pages/Checkout.jsx";
 import PaymentSuccess from "./User/Pages/PaymentSuccess.jsx";
+import AboutUs from "./User/Pages/AboutUs.jsx";
 
 import Reader from "./User/Pages/Reader.jsx";
 
@@ -32,6 +33,7 @@ import UserManagement from "./Admin/Pages/UserManagement.jsx";
 import BookManagementLayout from "./Admin/BookManagementLayout.jsx";
 import BookManagement from "./Admin/Pages/BookManagement.jsx";
 import BookChaptersManagement from "./Admin/Pages/BookChaptersManagement.jsx";
+import BookReviewsManagement from "./Admin/Pages/BookReviewsManagement.jsx";
 
 import GenreManagementLayout from "./Admin/GenreManagementLayout.jsx";
 import GenreManagement from "./Admin/Pages/GenreManagement.jsx";
@@ -46,7 +48,6 @@ import {usePicture} from "./User/Context/PictureContext.jsx";
 import {useCart} from "./User/Context/CartContext.jsx";
 import {useLibrary} from "./User/Context/LibraryContext.jsx";
 import {useEffect} from "react";
-import AboutUs from "./User/Pages/AboutUs.jsx";
 
 function App() {
 
@@ -105,6 +106,7 @@ function App() {
                     <Route element={<BookManagementLayout/>}>
                         <Route path="/book-management" element={<BookManagement/>}/>
                         <Route path="/book-management/:bookId/chapters" element={<BookChaptersManagement/>}/>
+                        <Route path="/book-management/:bookId/reviews" element={<BookReviewsManagement/>}/>
                     </Route>
 
                     <Route element={<GenreManagementLayout/>}>

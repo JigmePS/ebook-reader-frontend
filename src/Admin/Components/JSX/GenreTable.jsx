@@ -14,6 +14,7 @@ import {
 import axios from "axios";
 import ConfirmationModal from "../../../Shared/Components/JSX/ConfirmationModal.jsx";
 import AddEditGenreModal from "./AddEditGenreModal.jsx";
+import {toast} from "react-toastify";
 
 
 function GenreTable({title, theme}) {
@@ -71,13 +72,13 @@ function GenreTable({title, theme}) {
         {
             name: "Genre ID",
             selector: row => row.genreid,
-            sortable: true
+            sortable: true,
+            width: "100px"
         },
         {
             name: "Genre",
             selector: row => row.genrename,
             sortable: true,
-            width: "150px"
         },
         {
             name: "Books",
@@ -203,9 +204,10 @@ function GenreTable({title, theme}) {
                                 .then(() => {
                                     setGenres(prev => prev.filter(g => g.genreid !== selectedGenre.genreid));
                                     setShowDeleteModal(false);
+                                    toast.success("Genre deleted succesfully");
                                 })
                                 .catch(err => {
-                                    console.error("Error deleting genre", err);
+                                    toast.error("Error deleting genre. There might be books with this genre.", err);
                                     setShowDeleteModal(false);
                                 });
                         }}

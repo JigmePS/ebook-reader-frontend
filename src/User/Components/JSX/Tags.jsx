@@ -21,7 +21,7 @@ function Tags() {
                     <div className="category-title">Tags/Genres</div>
                     <div className="category-expand">
                         <Link
-                            className={"expand"}
+                            className={"category-expand-link"}
                             to="/genre">
                             See More
                         </Link>

@@ -1,12 +1,23 @@
-import {useReader} from "../../Context/ReaderContext.jsx";
-import {useCustomise} from "../../Context/CustomiseContext.jsx";
+import { useReader } from "../../Context/ReaderContext.jsx";
+import { useCustomise } from "../../Context/CustomiseContext.jsx";
+import { useLibrary } from "../../Context/LibraryContext.jsx";
 import "../CSS/Reader.css";
 import axios from "axios";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom"; // To get bookId from URL
 
-function ChapterContent({chapterId}) {
-    const {toggleSticky} = useReader();
-    const {fontType, fontSize, lineSpacing, paragraphSpacing} = useCustomise();
+function ChapterContent({ chapterId }) {
+    const { toggleSticky } = useReader();
+    const { fontType, fontSize, lineSpacing, paragraphSpacing } = useCustomise();
+    const { libraryData } = useLibrary();
+    const { bookId } = useParams(); // current book ID from route
+
+    const [chapterText, setChapterText] = useState("");
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    // Check if user owns the book
+    const isAuthorized = libraryData.some((entry) => String(entry.bookid) === String(bookId));
 
     const handleClick = (e) => {
         const middleThird = window.innerHeight / 3;
@@ -18,18 +29,16 @@ function ChapterContent({chapterId}) {
     };
 
     const style = {
-        fontFamily: fontType, // <- this is the important line
+        fontFamily: fontType,
         fontSize: `${fontSize}px`,
         lineHeight: lineSpacing,
         padding: "2rem"
     };
 
-    const [chapterText, setChapterText] = useState("");
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-
     useEffect(() => {
         const fetchChapterText = async () => {
+            if (!isAuthorized) return;
+
             try {
                 const response = await axios.get(`http://localhost:8080/user/chapter/text/${chapterId}`, {
                     withCredentials: true,
@@ -44,10 +53,17 @@ function ChapterContent({chapterId}) {
         };
 
         fetchChapterText();
-    }, [chapterId]);
+    }, [chapterId, isAuthorized]);
+
+    if (!isAuthorized) {
+        return (
+            <div className="reader-chapter-content" style={{ ...style, minHeight: "100vh" }}>
+                <p className="error-text">You are not authorised to view this content.</p>
+            </div>
+        );
+    }
 
     return (
-
         <div
             className="reader-chapter-content"
             onClick={handleClick}

@@ -11,6 +11,7 @@ function ForgotPasswordModal({onClose}) {
     const [emailValue, setEmailValue] = useState('');
     const [otp, setOtp] = useState('');
     const [error, setError] = useState('');
+    const [loading, setLoading] = useState(false);
 
     const modalRef = useRef();
 
@@ -34,13 +35,16 @@ function ForgotPasswordModal({onClose}) {
     });
 
     const handleSendEmail = async (data) => {
+        setError('');
+        setLoading(true);
         try {
             await axios.post('http://localhost:8080/user/forgot/send-otp', {email: data.email});
             setEmailValue(data.email);
             setStep(2);
-            setError('');
         } catch {
             setError("Email not found.");
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -65,16 +69,25 @@ function ForgotPasswordModal({onClose}) {
     });
 
     const handleVerifyOtp = async () => {
+        if (otp.length !== 6) {
+            setError("Please enter a 6-digit OTP.");
+            return;
+        }
+        setError('');
+        setLoading(true);
         try {
             await axios.post('http://localhost:8080/user/forgot/verify-otp', {email: emailValue, otp});
             setStep(3);
-            setError('');
         } catch {
             setError("Invalid OTP.");
+        } finally {
+            setLoading(false);
         }
     };
 
     const handleResetPassword = async (data) => {
+        setError('');
+        setLoading(true);
         try {
             await axios.post('http://localhost:8080/user/forgot/reset-password', {
                 email: emailValue,
@@ -85,6 +98,8 @@ function ForgotPasswordModal({onClose}) {
             onClose();
         } catch {
             setError("Reset failed.");
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -101,10 +116,13 @@ function ForgotPasswordModal({onClose}) {
                                     type="email"
                                     placeholder="Enter your email"
                                     {...registerEmail("email")}
+                                    disabled={loading}
                                 />
-                                <button type="submit">Send OTP</button>
+                                <button type="submit" disabled={loading}>
+                                    {loading ? "Sending..." : "Send OTP"}
+                                </button>
                             </form>
-                            <div className="form-error">{emailErrors.email?.message}</div>
+                            <div className="form-error" aria-live="assertive">{emailErrors.email?.message}</div>
                         </>
                     )}
 
@@ -114,6 +132,7 @@ function ForgotPasswordModal({onClose}) {
                                 value={otp}
                                 onChange={setOtp}
                                 numInputs={6}
+                                isDisabled={loading}
                                 renderInput={(props) => (
                                     <input
                                         {...props}
@@ -130,7 +149,9 @@ function ForgotPasswordModal({onClose}) {
                                 )}
                             />
                             <div>OTP will expire in 60 seconds.</div>
-                            <button onClick={handleVerifyOtp}>Verify OTP</button>
+                            <button onClick={handleVerifyOtp} disabled={loading}>
+                                {loading ? "Verifying..." : "Verify OTP"}
+                            </button>
                         </div>
                     )}
 
@@ -141,14 +162,17 @@ function ForgotPasswordModal({onClose}) {
                                     type="password"
                                     placeholder="New Password"
                                     {...registerPassword("newPassword")}
+                                    disabled={loading}
                                 />
-                                <div className="form-error">{passwordErrors.newPassword?.message}</div>
-                                <button type="submit">Reset Password</button>
+                                <div className="form-error" aria-live="assertive">{passwordErrors.newPassword?.message}</div>
+                                <button type="submit" disabled={loading}>
+                                    {loading ? "Resetting..." : "Reset Password"}
+                                </button>
                             </form>
                         </>
                     )}
 
-                    {error && <div className="form-error">{error}</div>}
+                    {error && <div className="form-error" aria-live="assertive">{error}</div>}
                 </div>
             </div>
         </div>

@@ -4,16 +4,35 @@ import {useState} from "react";
 import EditUsernameModal from "./EditUsernameModal.jsx";
 import EditEmailModal from "./EditEmailModal.jsx";
 import EditPasswordModal from "./EditPasswordModal.jsx";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {HugeiconsIcon} from "@hugeicons/react";
-import {ArrowRight01Icon, Edit03Icon} from "@hugeicons/core-free-icons";
+import {ArrowRight01Icon, Cancel02Icon, Edit03Icon} from "@hugeicons/core-free-icons";
+import axios from "axios";
+import ConfirmationModal from "../../../Shared/Components/JSX/ConfirmationModal.jsx";
+import {toast} from "react-toastify";
 
 function UserSettings() {
-    const {sessionData} = useAuth();
+    const {refreshSession, sessionData} = useAuth();
 
     const [showUsernameModal, setShowUsernameModal] = useState(false);
     const [showEmailModal, setShowEmailModal] = useState(false);
     const [showPasswordModal, setShowPasswordModal] = useState(false);
+
+    const [showConfirmModal, setShowConfirmModal] = useState(false);
+    const navigate = useNavigate();
+
+    const handleDeleteAccount = async () => {
+        try {
+            await axios.delete(`http://localhost:8080/user/delete-account`, {
+                withCredentials: true
+            });
+            refreshSession();
+            toast.success("User deleted successfully.");
+            navigate("/"); // No need to explicitly logout again
+        } catch (error) {
+            console.error("Account deletion failed:", error);
+        }
+    };
 
     return (
         <>
@@ -64,6 +83,14 @@ function UserSettings() {
                     <HugeiconsIcon icon={ArrowRight01Icon}/>
                 </div>
             </Link>
+            <div className="profile-settings-user-delete-btn-container">
+                <button
+                    className="profile-settings-user-delete-btn"
+                    onClick={() => setShowConfirmModal(true)}>
+                    <HugeiconsIcon icon={Cancel02Icon}/>
+                    Delete account
+                </button>
+            </div>
 
             {showUsernameModal && (
                 <EditUsernameModal
@@ -80,7 +107,16 @@ function UserSettings() {
             )}
 
             {showPasswordModal && (
-                <EditPasswordModal onClose={() => setShowPasswordModal(false)} />
+                <EditPasswordModal onClose={() => setShowPasswordModal(false)}/>
+            )}
+
+            {showConfirmModal && (
+                <ConfirmationModal
+                    onClose={() => setShowConfirmModal(false)}
+                    message="This action is irreversible. All your data will be lost."
+                    action="Delete"
+                    onConfirm={handleDeleteAccount}
+                />
             )}
         </>
     )

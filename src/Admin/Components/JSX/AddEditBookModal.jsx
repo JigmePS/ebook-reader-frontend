@@ -85,7 +85,7 @@ function AddEditBookModal({book, onClose, onSave}) {
 
         method(url, formData, {
             withCredentials: true,
-            headers: { "Content-Type": "multipart/form-data" }
+            headers: {"Content-Type": "multipart/form-data"}
         })
             .then(res => {
                 toast.success(`Book ${isEditMode ? "updated" : "added"} successfully!`);
@@ -97,6 +97,14 @@ function AddEditBookModal({book, onClose, onSave}) {
             })
             .finally(() => onClose());
     };
+
+    const [authorSuggestions, setAuthorSuggestions] = useState([]);
+    const [filteredAuthors, setFilteredAuthors] = useState([]);
+    const [showAuthorSuggestions, setShowAuthorSuggestions] = useState(false);
+
+    axios.get("http://localhost:8080/admin/author/all", {withCredentials: true})
+        .then(res => setAuthorSuggestions(res.data)) // assuming res.data is an array of author names
+        .catch(err => console.error("Failed to load authors", err));
 
     const modalRef = useRef();
     const closeModal = (e) => {
@@ -130,9 +138,38 @@ function AddEditBookModal({book, onClose, onSave}) {
                     <div className="admin-modal-big-form-row">
                         <div className="admin-modal-big-form-row-unit">
                             <label>Author</label>
-                            <input {...register("author")} />
+                            <div className="author-input-wrapper">
+                                <input
+                                    {...register("author")}
+                                    onChange={(e) => {
+                                        setValue("author", e.target.value);
+                                        const input = e.target.value.toLowerCase();
+                                        setFilteredAuthors(authorSuggestions.filter(a => a.toLowerCase().includes(input)));
+                                        setShowAuthorSuggestions(true);
+                                    }}
+                                    onFocus={() => setShowAuthorSuggestions(true)}
+                                    onBlur={() => setTimeout(() => setShowAuthorSuggestions(false), 150)} // timeout to allow click
+                                />
+
+                                {showAuthorSuggestions && filteredAuthors.length > 0 && (
+                                    <ul className="author-suggestion-dropdown">
+                                        {filteredAuthors.map((author, index) => (
+                                            <li
+                                                key={index}
+                                                onClick={() => {
+                                                    setValue("author", author);
+                                                    setShowAuthorSuggestions(false);
+                                                }}
+                                            >
+                                                {author}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                )}
+                            </div>
                             <div className="form-error">{errors.author?.message}</div>
                         </div>
+
 
                         <div className="admin-modal-big-form-row-unit">
                             <label>Price (in $)</label>
@@ -225,7 +262,8 @@ function AddEditBookModal({book, onClose, onSave}) {
                 <div className="admin-modal-actions">
                     <button
                         className="admin-modal-save-btn"
-                        onClick={handleSubmit(onSubmit)}>Save</button>
+                        onClick={handleSubmit(onSubmit)}>Save
+                    </button>
                 </div>
             </div>
         </div>

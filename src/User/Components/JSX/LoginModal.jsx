@@ -54,9 +54,12 @@ function LoginModal({onClose,onOpen}) {
     });
 
     const [loginError, setLoginError] = useState("");
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
     const onSubmit = async (data) => {
+        setLoginError("");  // Clear previous errors on new submission
+        setLoading(true);
         try {
             const response = await axios.post('http://localhost:8080/user/login', data, {
                 withCredentials: true,
@@ -73,14 +76,16 @@ function LoginModal({onClose,onOpen}) {
                 navigate("/"); // default user route
             }
 
-            // Then load extra stuff
-            refreshSession();
-            fetchUserPicture();
-            fetchCartData();
+            // Await these to ensure data is loaded after login
+            await refreshSession();
+            await fetchUserPicture();
+            await fetchCartData();
 
         } catch (err) {
             console.error("Login failed", err);
             setLoginError("Invalid email or password.");
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -105,9 +110,8 @@ function LoginModal({onClose,onOpen}) {
                                         type="text"
                                         placeholder="Email Address"
                                         className="field"/>
-                                    {/*<i className="error error-icon fas fa-exclamation-circle"></i>*/}
                                 </div>
-                                <div className="form-error">{errors.email?.message}</div>
+                                <div className="form-error" aria-live="assertive">{errors.email?.message}</div>
                             </div>
                             <div className="field-container">
                                 <div className="field-content">
@@ -119,9 +123,8 @@ function LoginModal({onClose,onOpen}) {
                                         type="password"
                                         placeholder="Password"
                                         className="field"/>
-                                    {/*<i className="error error-icon fas fa-exclamation-circle"></i>*/}
                                 </div>
-                                <div className="form-error">{errors.password?.message}</div>
+                                <div className="form-error" aria-live="assertive">{errors.password?.message}</div>
                                 <div className="forget-password-redirect">
                                     <button
                                         type="button"
@@ -129,21 +132,26 @@ function LoginModal({onClose,onOpen}) {
                                 </div>
                             </div>
 
-                            {loginError && <div className="form-error">{loginError}</div>}
+                            {loginError && <div className="form-error" aria-live="assertive">{loginError}</div>}
 
-                            <input type="submit" value="Login" className="submit-button"/>
+                            <input
+                                type="submit"
+                                value={loading ? "Logging in..." : "Login"}
+                                className="submit-button"
+                                disabled={loading}
+                            />
+                            {loading && <span style={{marginLeft: "10px"}}>Loading...</span>}
                         </form>
                     </div>
                     <div className="form-switch">
                         New to Biblio?
-                        <button onClick={handleSwitchToSignup}>
+                        <button onClick={handleSwitchToSignup} disabled={loading}>
                             Signup now
                         </button>
                     </div>
                 </div>
             </div>
             {showForgotModal && <ForgotPasswordModal onClose={() => setShowForgotModal(false)} />}
-
         </div>
     )
 }
